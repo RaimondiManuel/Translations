@@ -82,7 +82,7 @@ Tutto in Git viene verificato prima del commit, verifica definita in un checksum
 
 Il meccanismo che Git usa per il checksum è chiamato SHA-1. Questa è una stringa di 40 caratteri esadecimali (0-9 e a-f) e calcolata in base al contenuto di un file e dalla struttura delle directory nel progetto Git. Un hash SHA-1 ha un aspetto simile:
 
-'24b9da6552252987aa493b52f8696cd6d3600373'
+`24b9da6552252987aa493b52f8696cd6d3600373`
 
 Vedrai questi valori hash ovunque in Git, infatti, Git memorizza tutto nel suo database. Non per nome del file ma per valore di hash. Git in genere aggiunge solo dati.
 
