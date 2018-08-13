@@ -31,3 +31,21 @@ Questo setup offre numerosi vantaggi, in particolare rispetto ai VCS locali. Ad 
 Inoltre i DCVS si comportano molto bene nel gestire diversi repository remoti, in modo tale da permettere a diversi gruppi con diversi work flow di poter lavorare sullo stesso progetto contemporaneamente. Ciò consente di impostare diversi work flow, cosa impossibile nei CVCS.
 
 ### 1.2 Getting Started - A Short History of Git ###
+
+Come con molte grandi cose nella vita, Git ha iniziato con un po' di distruzione creativa, e di accese polemiche.
+
+Il kernel linux è un progetto software open source di ambito abbastanza grande. Per la maggior parte della durata della manutenzione del kernel linux ( 1991 - 2002 ), le modifiche al software sono state passate come patch e file archiviati. Nel 2002, il progetto del kernel linux iniziò ad utilizzare un DVCS proprietario chiato BitKeeper.
+
+Nel 2005 la relazione tra la comunità che ha sviluppato il kernel linux e la socità commerciale che ha sviluppato BitKepper si è rotta, e lo stato di libero utilizzo dello strumento è stato revocato. Ciò ha spinto la comunità di sviluppo ( e in particolare Linus Torvalds, il creatore di linux ) a sviluppare il proprio strumentobasato su alcune delle lezioni apprese durante l'utilizzo di BitKeeper. Alcuni degli obbiettivi del nuovo sistema erano
+
+1. Velocità.
+2. Design semplice.
+3. Forte supporto per lo sviluppo non lineare ( migliaia di branch paralleli ).
+4. Completamente distribuito.
+5. In grado di gestire in modo efficente grandi progetti come il Kernel Linux ( velocità e gestione dei dati ).
+
+Dalla sua neìascita nel 2005, Git si è evoluto ed è maturato per essere facile da usare e tuttavia mantenere queste qualità iniziali.
+
+è incredibilmente veloce, è molto efficente con progetti di grandi dimensioni e ha un incredibile sistema di braching per lo sviluppo non lineare. 
+
+### 1.3 Getting Started - Git Basics ###
