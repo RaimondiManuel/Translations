@@ -84,7 +84,7 @@ Il meccanismo che Git usa per il checksum è chiamato SHA-1. Questa è una strin
 
 `24b9da6552252987aa493b52f8696cd6d3600373`
 
-Vedrai questi valori hash ovunque in Git, infatti, Git memorizza tutto nel suo database. Non per nome del file ma per valore di hash. Git in genere aggiunge solo dati.
+Vedrai questi valori hash ovunque in Git, infatti, Git memorizza tutto nel suo database. Non per nome del file, ma per valore di hash. Git in genere aggiunge solo dati.
 
 ### Git Generally Only Adds Data ###
 
@@ -123,3 +123,48 @@ Se una particolare versione si trova nella directory Git, viene considerata Comm
 Ci sono molti modi diversi di utilizzare Git. C'è la linea di comando, e molte interfacce grafiche dotate di molte features. Per questo libro, utilizzeremo Git da linea di comando, poichè, dalla linea di comando è possibile eseguire tutti i comandi Git, mentre, le GUI, per semplicità, implementano solo un parziale sottoinsieme delle features di Git. Se si è in grado di utilizzare la command-line, si sarà molto probabilmente anche in grado di utilizzare la maggior parte delle GUI. Inoltre la linea di comando è uno strumento disponibile a tutti.
 
 ## 1.6 Getting Started - First Time Git Setup ##
+
+Ora che avete Git nel vostro sistema, ti consigliamo di fare alcune cose per personalizzareil tuo ambiente Git. Dovrebbe essere fatto una sola volta su un dato computer. è possibile comunque cambiare le impostazioni in qualsiasi momento.
+
+Git viene fornito con uno strumento chiamato `git config` che consente di leggere e scrivere variabili di configurazioni che controllano come Git appare e opera. Queste variabili possono essere memorizzate in tre punti diversi.
+
+`/etc/config` file: Contiene valori applicati ad ogni utente sul sistema e su tutti i relativi repository. Se si passa l'opzione `--system` a `git config` esso legge e scrive direttamente su questo file. Poichè si tratta di un file di configurazione di sistema è necessario avere i privilegi di amministratore o super utente per apportare modifiche a questo file.
+
+`~/.gitconfig` o `~/.config/git/config` file: Contiene valori applicati al singolo utente sui relativi repository. Perchè l'utente legga e scriva su di un file è necessario passare l'opzione `--global`. Questo ha effetto su tutti i repository su cui lavori all'interno del sistema.
+
+Il file di configurazione nella directory di Git, specifico per quel repository. Puoi forzare Git a leggere e scrivere su questo file passando l'opzione `--local`. Di fatto `--local` è l'opzione predefinita. Non sorprendentemente, è necessario trovarsi da qualche parte in un repository Git perchè questa opzione sia valida.
+
+Ogni livello sovrascrive i valori il livello precedente, quindi, i valori in `~git/config` sovrascriveranno quelli di `/etc/config`.
+
+Sui sistemi WindowsGit cerca i file `.gitconfig` nella directory `$HOME`. Cerca anche `/etc/config` anche se è relativo alla root msys, che è ovuque tu decida di installare Git.
+
+Questo file può essere modificato solo da `git config -f <file>` come amministratore.
+
+### Your Identity ###
+
+La prima cosa che dovresti fare quando installi Git è impostare il tuo nome utente e l'indirizzo mail. Questo è importante poichè ogni commit Git usa queste informazioni. Inoltre queste informazioni sono incluse nei commit che farai.
+
+```
+    $ git config --global user.name "Jhon Doe"
+```
+```
+    $ git config --global user.mail "jhondoe@example.com"
+```
+
+è necessario farlo solamente se l'opzione `--global` viene passata. Git userà sempre quell'informazione per qualsiasi cosa tu faccia su quel sistema. Se si desidera eseguire l'override di questi con un nome diverso o un'indirizzo mail diverso per progetti specifici, è possibile eseguire l'operazione senza l'utilizzo dell'opzione `--global` quando ci si trova in quel progetto.
+
+Molti degli strumenti della GUI vi aiuteranno a fare il login al primo avvio.
+
+### Your Editor ###
+
+Ora che la vostra identità è stata impostata, potete configurare un text-editor di default che sarà utilizzato quando Git avrà bisogno di digitare un messaggio. Se non configurato, Git utilizza l'editor predefinito del sistema.
+
+Se si desidera utilizzare un'editor di testo diverso, è possibile effettuare le seguenti operazioni.
+
+```
+    $ git config --global core.editor <editor>
+```
+
+Su un sistema Windows, se si desidera utilizzare un'editor diverso, è necessario specificare il percorso completo del file eseguibile.
+
+### Checking Your Settings ###
