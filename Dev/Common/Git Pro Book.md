@@ -16,7 +16,7 @@ Molte persone utilizzano come metodo di controllo di versione, quello di copiare
 
 I VCS sono stati realizzati proprio allo scopo di risolvere questa problematica. I primi VCS erano locali alla macchina, con un database anchesso locale, il cui scopo, era quello di conservare le modifiche effettuate sotto VCS.
 
-! [Local version control.] (https://git-scm.com/book/en/v2/images/local.png)
+![Local version control](https://git-scm.com/book/en/v2/images/local.png)
 
 Uno degli strumenti VCS più popolari era RCS, che viene ancora oggi, distribuito su molti computer. RCS funzionava mantenendo un set di patch, una raccolta di differenze tra file, in un formato apposito su disco. Poteva quindi ricreare l'aspetto di un qualsiasi file in qualsiasi momento, tramite l'aggiunta di tutte le patch.
 
