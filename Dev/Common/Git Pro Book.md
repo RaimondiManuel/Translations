@@ -1,6 +1,6 @@
 # Git Pro Book #
 
-### 1.1 Getting Started - About Version Control ###
+## 1.1 Getting Started - About Version Control ##
 
 In questo capitolo, introdurremo Git, cominceremo illustrando il background dietro gli strumenti di versionamento, quindi ci sposteremo successivamente sulla procedura di avvio di Git nel vostro sistema, ed infine, come impostare Git per le sessioni di lavoro future.
 
@@ -16,6 +16,8 @@ Molte persone utilizzano come metodo di controllo di versione, quello di copiare
 
 I VCS sono stati realizzati proprio allo scopo di risolvere questa problematica. I primi VCS erano locali alla macchina, con un database anchesso locale, il cui scopo, era quello di conservare le modifiche effettuate sotto VCS.
 
+![Local version control.] (https://git-scm.com/book/en/v2/images/local.png)
+
 Uno degli strumenti VCS più popolari era RCS, che viene ancora oggi, distribuito su molti computer. RCS funzionava mantenendo un set di patch, una raccolta di differenze tra file, in un formato apposito su disco. Poteva quindi ricreare l'aspetto di un qualsiasi file in qualsiasi momento, tramite l'aggiunta di tutte le patch.
 
 ### Centralized Version Control System ###
@@ -30,7 +32,7 @@ Questo setup offre numerosi vantaggi, in particolare rispetto ai VCS locali. Ad 
 
 Inoltre i DCVS si comportano molto bene nel gestire diversi repository remoti, in modo tale da permettere a diversi gruppi con diversi work flow di poter lavorare sullo stesso progetto contemporaneamente. Ciò consente di impostare diversi work flow, cosa impossibile nei CVCS.
 
-### 1.2 Getting Started - A Short History of Git ###
+## 1.2 Getting Started - A Short History of Git ##
 
 Come con molte grandi cose nella vita, Git ha iniziato con un po' di distruzione creativa, e di accese polemiche.
 
@@ -48,11 +50,11 @@ Dalla sua neìascita nel 2005, Git si è evoluto ed è maturato per essere facil
 
 è incredibilmente veloce, è molto efficente con progetti di grandi dimensioni e ha un incredibile sistema di braching per lo sviluppo non lineare. 
 
-### 1.3 Getting Started - Git Basics ###
+## 1.3 Getting Started - Git Basics ##
 
 Quindi, cos'è in poche parole Git? questa è una sezione importante da assimilare perchè se capisci cos'è Git el le basi del funzionamento sarà possibile utilizzare Git in modo efficace e probabilmente molto più facile. Mentre apprendi Git è necessario dimenticare gli altri sistemi di versioning. In questo modo eviterai confusione durante l'utilizzo dello strumento. Anche se l'interfaccia Git è molto simile agli altri strumenti in commercio , Git memorizza e pensa alle informazioni in modo molto diverso, e la comprensione di queste differenze ti aiuterà ad evitare confonderti durante l'utilizzo.
 
-## Snapshot, Not Differences ##
+### Snapshot, Not Differences ###
 
 La principale differenza tra Git e qualsiasi altro VCS( Subversion ecc... ) è il modo in cui Git pensa ai suoi dati. Concettualmente la maggior parte dei sistemi memorizza le informazioni come un elenco di modifiche basato su file. Questi altri sistemi(CVS, Subversion, Preforce, Bazaar e cosi via) pensano alle informazioni che memorizzano come un insieme di file e modifiche apportate a ciascun file nel tempo(questo è comunemente descritto come VCS delta based).
 
@@ -60,13 +62,13 @@ Git non pensa o conserva i suoi dati in questo modo. Invece Git pensa ai suoi da
 
 Questa è una distinzione importante tra Git e quasi tutti gli altri VCS. Ciò ha causato a Git di dover riconsiderare quasi ogni aspetto del controllo di versione che la maggior parte degli altri sistemi hanno copiato dalla generazione precedente. Questo rende Git più simile ad un mini filesystem con alcuni incredibili strumenti costruiti attorno ad esso, piuttosto che un semplice VCS. Esploreremo alcuni dei vantaggi cheottieni pensando ai tuoi dati in questa maniera, quando parleremo di branching.
 
-## Nearly Every Operation is Local ##
+### Nearly Every Operation is Local ###
 
 La maggior parte delle operazioni in Git necessitano solo di file o risorse locali per funzionare, in genere non sono necessarie informazioni da un altro computer per funzionare. Se sei abituato ad un CVCS in cui la maggior parte delle operazioni ha una tale latenza di rete, ciò torna molto utile, poichè hai a disposizione l'intera cronologia del progetto sul tuo disco locale, la maggior parte delle operazioni sembrano quasi istantanee. Ad esempio, per esplorare la cronologia del progetto, Git non ha bisogno di uscire sul server per mostrarla, semplicemente, legge dal tuo database locale.
 
 Ciò significa anche che ci sono poche cose che non si possono fare se non si è online o fuori VPN.
 
-## Git Has Integrity ##
+### Git Has Integrity ###
 
 Tutto in Git viene verificato prima del commit, verifica definita in un checksum. Ciò significa che è impossibile effettuare un cambiamento di contenuto di un file o di una directory senza che Git ne sia a conoscenza. Questa feature è integrata in Git a basso livello ed è parte integrante della sua filosofia. Non è possibile perdere le informazioni in transito e ottenere la corruzione dei file senza che Git se ne accorga.
 
@@ -103,3 +105,9 @@ Il work flow Git è:
 3. Fare un commit, prendendo i dati cosi come sono nella Staging Area. Memorizza nella tua directory Git in modo permanente, uno snapshot.
 
 Se una particolare versione si trova nella directory Git, viene considerata Committed. Se è stata modificata ed è stata aggiunta nella Staging Area viene considerata Staged. Se è stata modificata rispetto al checkout ma non è ancora nella Staging Area, viene considerata Modified.
+
+## 1.4 Getting Started - The Command Line ##
+
+Ci sono molti modi diversi di utilizzare Git. C'è la linea di comando, e molte interfacce grafiche dotate di molte features. Per questo libro, utilizzeremo Git da linea di comando, poichè, dalla linea di comando è possibile eseguire tutti i comandi Git, mentre, le GUI, per semplicità, implementano solo un parziale sottoinsieme delle features di Git. Se si è in grado di utilizzare la command-line, si sarà molto probabilmente anche in grado di utilizzare la maggior parte delle GUI. Inoltre la linea di comando è uno strumento disponibile a tutti.
+
+## 1.6 Getting Started - First Time Git Setup ##
