@@ -16,7 +16,7 @@ Molte persone utilizzano come metodo di controllo di versione, quello di copiare
 
 I VCS sono stati realizzati proprio allo scopo di risolvere questa problematica. I primi VCS erano locali alla macchina, con un database anchesso locale, il cui scopo, era quello di conservare le modifiche effettuate sotto VCS.
 
-![Local version control](https://git-scm.com/book/en/v2/images/local.png)
+![Local version control system.](https://git-scm.com/book/en/v2/images/local.png)
 
 Uno degli strumenti VCS più popolari era RCS, che viene ancora oggi, distribuito su molti computer. RCS funzionava mantenendo un set di patch, una raccolta di differenze tra file, in un formato apposito su disco. Poteva quindi ricreare l'aspetto di un qualsiasi file in qualsiasi momento, tramite l'aggiunta di tutte le patch.
 
@@ -24,11 +24,15 @@ Uno degli strumenti VCS più popolari era RCS, che viene ancora oggi, distribuit
 
 Il problema principale che le persone si trovano ad affrontare, è il bisogno di dover condividere il lavoro con altri sviluppatori, i quali lavorano su sistemi diversi. Per far fronte a questo problema, sono stati sviluppati VCS centralizzati, chiamati CVCS, Centralized Version Control System. Questi sistemi, come CVS, SVN, Preforce, sono basati su un singolo server, il quale è proprietario di tutti i file, nonche, un certo numero di client che gestiscono i file basandosi su quella posizione centrale. Per molti anni, questo è stato lo standardper i VCS.
 
+![Centralized version control system.](https://git-scm.com/book/en/v2/images/centralized.png)
+
 Questo setup offre numerosi vantaggi, in particolare rispetto ai VCS locali. Ad desempio, in una certa misura, tutti sanno cio che fanno tutti all'interno del progetto. Gli amministratori hanno un controllo preciso su chi può fare cosa, ed è nolto più facile amministrare un CVCS che gestire un database locale per n client. Tuttavia, questo setup ha anche dei difetti. Uno dei più ovvi è il single point of failure che rappresnta un server centralizzato. Se quel server si interrompe per un'ora, nessuno può collaborare o salvare le modifiche effettuate. Se il progetto sul server centrale è danneggiato o corrotto, si perde ogni progresso fatto. Anche i server VCS locali soffrono di questo stesso problema. Ogni volta che la cronologia dei cambiamenti viene gestita in un singolo punto, è inesorabilmente presente, questo tipo di problematica. 
 
 ### Distributed Version Control System ###
 
 è qui che entrano in gioco i DCVS, Distributed Control Version System. In un DVCS i client non controllano solamente l'ultimo snapshot del file. I client hanno il controllo sull'intero repository, inclusa tutta la sua cronologia. Pertanto, se il server viene compromesso in qualche modo, e questi client lavorano basandosi su questo server, ognuno dei client avrà a disposizione una versione sana del repository, con cui poter ripristinare lo stato del server. Pertanto ogni client è un vero e proprio backup di ciò che è contenuto nel server.
+
+![Distributed version control system.](https://git-scm.com/book/en/v2/images/distributed.png)
 
 Inoltre i DCVS si comportano molto bene nel gestire diversi repository remoti, in modo tale da permettere a diversi gruppi con diversi work flow di poter lavorare sullo stesso progetto contemporaneamente. Ciò consente di impostare diversi work flow, cosa impossibile nei CVCS.
 
@@ -58,7 +62,11 @@ Quindi, cos'è in poche parole Git? questa è una sezione importante da assimila
 
 La principale differenza tra Git e qualsiasi altro VCS( Subversion ecc... ) è il modo in cui Git pensa ai suoi dati. Concettualmente la maggior parte dei sistemi memorizza le informazioni come un elenco di modifiche basato su file. Questi altri sistemi(CVS, Subversion, Preforce, Bazaar e cosi via) pensano alle informazioni che memorizzano come un insieme di file e modifiche apportate a ciascun file nel tempo(questo è comunemente descritto come VCS delta based).
 
+![Storing data as changes to a base version of each file.](https://git-scm.com/book/en/v2/images/deltas.png)
+
 Git non pensa o conserva i suoi dati in questo modo. Invece Git pensa ai suoi dati più come ad una serie di snapshot di un filesystem in miniatura. Con Git, ogni volta che si esegue un commit o si salva lo stato del proprio progetto, Git fa sostanzialmente uno snapshot di come appaiono i tutti file in quel momento e memorizza un riferimento a quello snapshot. Per essere efficente, se i file non sono stati modificati, Git non memorizza nuovamente i file, ma solo un collegamento al file precedente. Git pensa ai sui dati più come un flusso di snapshot.
+
+![Storing data as snapshots of the project over time.](https://git-scm.com/book/en/v2/images/snapshots.png)
 
 Questa è una distinzione importante tra Git e quasi tutti gli altri VCS. Ciò ha causato a Git di dover riconsiderare quasi ogni aspetto del controllo di versione che la maggior parte degli altri sistemi hanno copiato dalla generazione precedente. Questo rende Git più simile ad un mini filesystem con alcuni incredibili strumenti costruiti attorno ad esso, piuttosto che un semplice VCS. Esploreremo alcuni dei vantaggi cheottieni pensando ai tuoi dati in questa maniera, quando parleremo di branching.
 
@@ -76,7 +84,9 @@ Il meccanismo che Git usa per il checksum è chiamato SHA-1. Questa è una strin
 
 24b9da6552252987aa493b52f8696cd6d3600373
 
-Bedrai questi valori hash ovunque in Git, infatti, Git memorizza tutto nel suo database. Non per nome del file ma per valore di hash. Git in genere aggiunge solo dati.
+Vedrai questi valori hash ovunque in Git, infatti, Git memorizza tutto nel suo database. Non per nome del file ma per valore di hash. Git in genere aggiunge solo dati.
+
+### Git Generally Only Adds Data ###
 
 Quando esegui azioni in Git, quasi tutte aggiungono dati. è difficile far compiere a Git un'azione non annullabile o cancellare dati in qualsiasi modo. Come con qualsiasi VCS, puoi perdere o rovinare le modifiche che non hai ancora eseguito, ma dopo aver effettuato uno snapshot in Git, è molto difficile perdere le modifiche, specialmente se si esegue regolarmente il push sul database in un altro repository.
 
@@ -91,6 +101,8 @@ Questo ci porta alle tre sezioni principalidi un progetto Git:
 1. La directory Git.
 2. La Working Tree.
 1. La Staging Area.
+
+![Working tree, staging area, and Git directory.](https://git-scm.com/book/en/v2/images/areas.png)
 
 La directory Git è una directory dove Git memorizza i metadati e il database degli oggetti per il tuo progetto. Questa è la parte più importante di Git, ed è ciò che viene copiato quando cloni un repository da un'altro computer.
 
