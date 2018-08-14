@@ -143,12 +143,9 @@ Questo file può essere modificato solo da `git config -f <file>` come amministr
 ### Your Identity ###
 
 La prima cosa che dovresti fare quando installi Git è impostare il tuo nome utente e l'indirizzo mail. Questo è importante poichè ogni commit Git usa queste informazioni. Inoltre queste informazioni sono incluse nei commit che farai.
-
 ```
-    $ git config --global user.name "Jhon Doe"
-```
-```
-    $ git config --global user.mail "jhondoe@example.com"
+$ git config --global user.name "Jhon Doe"
+$ git config --global user.mail "jhondoe@example.com"
 ```
 
 è necessario farlo solamente se l'opzione `--global` viene passata. Git userà sempre quell'informazione per qualsiasi cosa tu faccia su quel sistema. Se si desidera eseguire l'override di questi con un nome diverso o un'indirizzo mail diverso per progetti specifici, è possibile eseguire l'operazione senza l'utilizzo dell'opzione `--global` quando ci si trova in quel progetto.
@@ -160,11 +157,98 @@ Molti degli strumenti della GUI vi aiuteranno a fare il login al primo avvio.
 Ora che la vostra identità è stata impostata, potete configurare un text-editor di default che sarà utilizzato quando Git avrà bisogno di digitare un messaggio. Se non configurato, Git utilizza l'editor predefinito del sistema.
 
 Se si desidera utilizzare un'editor di testo diverso, è possibile effettuare le seguenti operazioni.
-
 ```
-    $ git config --global core.editor <editor>
+$ git config --global core.editor <editor>
 ```
 
 Su un sistema Windows, se si desidera utilizzare un'editor diverso, è necessario specificare il percorso completo del file eseguibile.
 
 ### Checking Your Settings ###
+
+Se si desidera verificare le impostazioni di configurazione, è possibile utilizzare il comando `git config --list` per elencare tutte le impostazioni che Git può trovare in quel punto.
+```
+$ git config --list
+    user.name=Jhon Doe
+    user.mail=jhondoe@example.com
+    color.status=auto
+    color.branch=auto
+    color.interactive=auto
+    color.diff=auto
+    ...
+```
+è possible trovare le chiavi più di una volta poichè Git legge la stessa chiave da diversi file(per esempio `/etc/config` e `~/.gitconfig`) In questo caso Git da valore solamente all'ultima volta che la chiave è stata definita.
+
+Puoi anche controllare cosa pensa Git su di uno specifico `git config <key>`:
+```
+$ git config user.name
+ Jhon Doe
+```
+
+> Poichè Git potrebbe trovare la stessa chiave definita più volte, in più file, è possibile trovarsi con un valore imprevisto, senza saperne il motivo. In casi come questo puoi interrogare Gitsull'origine di quel valore utilizzando: `git config --show-origin <key>`.
+
+## 1.7 Getting Started - Getting Help ##
+
+Potresti occasionalmente avere bisogno di aiuto mentre utilizzi Git, ci sono due modi equivalenti per ottenerlo.
+```
+$ git help <verb>
+$ man git-<verb>
+```
+Per sempio potete visionare l'help manpage per il comando `git config`:
+```
+$ git config help
+```
+
+Questi comandi sono interessanti perchè vi si può accedere ovunque, anche offline.
+
+## 2.1 Git Basics - Getting a Git Repository ##
+
+Se avete la possibilitàdi leggere solo un capitolo, dovreste leggere questo. Questo capitolo offre una panoramica su tutti i comandi necessari a compiere la maggior parte delle azioni utili in Git. Entro la fine del capitolo dovresti essere in grado di:
+
+1. Configurare e analizzare un repository.
+2. Avviare e arrestare il tracking di uno o più file.
+3. Portare in stage e committare i cambiamenti.
+
+Ti mostrerò anche come impostare Git perchè ignori determinati file e/o file pattern. Come annullare gli errori in modo facile e veloce, come sfogliare la cronologia del tuo progetto e visualizzare le modifiche fra i commit e come effettuare push e pull da e verso i repository remoti.
+
+### Getting a Git Repository ###
+
+Solitamente è possibile ottenere un repository Git in due modi.
+
+1. Puoi prendere una directory locale che al momento non è ancora versionata e trasformarlo in un repository Git.
+2. Potete clonare un repository esistente.
+
+In entrambi i casi si ottiene un repository Git in locale sulla propria macchina pronto all'uso.
+
+### Initializing  a Repository in Any Existing Directory ###
+
+Se avrete una directory di un progetto che al momento non è sotto version control e volete iniziare a gestirlo con Git, avrete prima bisogno di andare nella directory di quel progetto:
+```
+$ cd /user/user/my-project
+```
+e digitare..
+```
+$ git init
+```
+Ciò crea una nuova subdirectory chiamata `.git` che contiene uno scheletro di repository. A questo punto però, il vostro repository non è ancora stato tracciato.
+
+Se volete avviare il versioning di file già esistenti dovete iniziale a tracciare quei file a fare un commit iniziale in questo modo
+```
+$ git add *
+$ git add LICENCE
+$ git commit -m "Initial project version"
+```
+Vedremo cosa fanno questi comandi in un minuto. A questo punto, hai un repository Git con file tracciati e un commit iniziale.
+
+### Cloning an Existing Repository ###
+
+Se volete avere la copia di un repository già esistente, il comando necessario è `git clone`. Se hai familiarità con altri sistemi di versioning, noterai che è il comandi di clone e non checkout, questa è una distinzione importante: invece di ottenere solo una copia funzionante, Git riceve una copia completa di quasi tutti i dati sul server. Ogni revisione di ogni file per la history del progetto, viene eseguito un pull di default quando eseguite un clone, infatti, se il disco del tuo server viene danneggiato, puoi nella maggior parte dei casi, utilizzare il clone nel client per riportare il server allo stato in cui era, quando è stato clonato.
+
+Si clona un repository Git utilizzando il comando 
+```
+$ git clone https://github.com/libgit2/libgit2`
+```
+Ciò crea una directory chiamata in qualche modo diverso da libgit2. Volendo puoi specificare il nome della directory.
+```
+$ git clone https://github.com/libgit2/libgit2 mylibgit
+```
+Quel comando fà la stessa cosa del precedente ma la directory di destinazione verrà chiamata mylibgit.
