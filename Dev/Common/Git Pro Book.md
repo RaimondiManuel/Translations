@@ -274,4 +274,35 @@ La prossima cosa che vedrai sarà la pagina dei prezzi per i piani aggiornati, m
 
 A partire da ora, sei completamente in grado di connetterti con il repository Git utilizzando il protocollo https://, autenticandoti con il nome utente e la password cha hai appena configurato. Tuttavia per clonare progetti pubblici non è necessario nemmeno registrarsi. L'account appena creato entra in gioco quando dobbiamo fare un Fork di un progetto o facciamo una Pull Request di un progetto successivamente.
 
-...
+Se si desidera utilizzare SSH da remoto, avrete bisogno di configurare una chiave pubblica. (Se non se ne possiede una, consultare la generazione di chiavi pubbliche SSH.) Apri le impostazioni dell'account utilizzando il link in alto a destra della finestra.
+
+img..
+
+Quindi selezionare la SSH key sul lato sinistro.
+
+img..
+
+Da qui, clicckate sul pulsante "Add SSH Key" che vi restituirà il nome della chiave, quindi copiate il contenuto della vostra chiave pubblica ~/.ssh/id_rsa.pub (o come la avete chiamata) nella text area, quindi fate click su "Add Key".
+> Assicuratevi di nominare le vostre chiavi SSH in modo che siano facili da ricordare. Potete assegnare un nome a ciascuna delle chiavi ( ad esempio "Il mio portatile" o "Account di lavoro") in modo tale che, nel caso si avesse bisogno di revocare una chiave in un secondo momento, sia possibile reperirle facilmente.
+
+### Your Avatar ###
+
+Successivamente, se lo si desidera, è possibile sostituire l'avatar generato con un'immagine a scelta. Per prima cosa, raggiungi la scheda "Profile" (sopra la scheda "SSH Keys") e fare click su "Add new picture".
+
+img...
+
+Quando si sceglie un'immagine, avremo anche la possibilità di ritagliarla.
+
+img...
+
+Ora, ovunque tu abbia interagito in GitHub, a fianco del tuo nome utente, apparirà il tuo avatar.
+
+Se ti è capitato di creare un'avatar sul famoso servizio Gravatar, quell'avatar sarà creato di default.
+
+### Your Email Addresses ###
+
+Il modo in cui GitHub mappa i Git commit, è legato alla mail della tua utenza, se utilizzate più indirizzi mail nei vostri commits e volete che GitHub li linki in maniera corretta, avrete bisogno di aggiungerli alla scheda mail della sezione admin.
+
+img...
+
+In Admin Email addresses possiamo vedere i diversi stati possibili. L'indirizzo in cima è verificato e impostato come indirizzo primario, ciò significa che riceverete a questa mail notifiche e ricevute. L'indirizzo secondario è verificato e può rimpiazzare il primario. L'ultimo indirizzo non è verificato quindi non potrete renderlo il vostro indirizzo primario. Se GitHub non vede nessuno di questi nei commit, i vostri commit verranno linkati al vostro nome utente attuale.
