@@ -252,3 +252,26 @@ Ciò crea una directory chiamata in qualche modo diverso da libgit2. Volendo puo
 $ git clone https://github.com/libgit2/libgit2 mylibgit
 ```
 Quel comando fà la stessa cosa del precedente ma la directory di destinazione verrà chiamata mylibgit.
+
+
+## 6.1 GitHub - Account Setup and Configuration ##
+
+GitHub è il pù grande Host per i repository Git, ed è il punto centrale di collaborazione per molti sviluppatori e progetti. Una grande percentuale di tutti i repository Git è ospitata su GitHub e molti progetti open source la utilizzano per l'hosting Git, il monitoraggio, la revisione, e altre cose. Quindi, anche se non è una parte direttamente connessa a Git, molto probabilmente avrai bisogno di utilizzarlo in sinergia con Git.
+
+Questo capitolo tratta l'uso efficace di GitHub. Ci occuperemo della registrazione di un account, nonchè della sua gestione, della creazione e dell uso di un repository Git, e dei work-flow comuni per contribuire ad un progetto e accettare un contributo ai tuoi progetti. Inoltr vedremo in dettaglio il funzionamento dell'interfaccia grafica e di tutti i trucchi per semplificarti la vita durante questi processi.
+
+### Account Setup and Configuration ###
+
+La prima cosa che bisogna fare è impostare un account utente gratuito. Basta visitare il sito https://github.com, scegliere un nome utenteche non sia già stato registrato, quindi fornire mail e password, facendo poi click sul pulsante "Iscriviti a GitHub".
+
+La prossima cosa che vedrai sarà la pagina dei prezzi per i piani aggiornati, ma per ora sarà più comodo ignorarla. GitHub ti invierà una mailper verificare l'indirizzo che hai fornito. Esegui dunque la verifica.
+
+> Nota: GitHub fornisce tutte le sue funzionalità con account gratuiti, con la limitazione che tutti i tuoi progetti sono pubblici (tutti avranno accesso in sola lettura.) I piani a pagamento di GitHub includono l'opzione di poter creare progetti privati.
+
+ Facendo click sul logo octocat in alto a sinistra dello schermo, potrai accedere alla tua dashboard. Orai sei pronto per utilizzare GitHub
+
+### SSH Access ###
+
+A partire da ora, sei completamente in grado di connetterti con il repository Git utilizzando il protocollo https://, autenticandoti con il nome utente e la password cha hai appena configurato. Tuttavia per clonare progetti pubblici non è necessario nemmeno registrarsi. L'account appena creato entra in gioco quando dobbiamo fare un Fork di un progetto o facciamo una Pull Request di un progetto successivamente.
+
+...
