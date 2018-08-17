@@ -287,17 +287,9 @@ Da qui, clicckate sul pulsante "Add SSH Key" che vi restituirà il nome della ch
 
 ### Your Avatar ###
 
-Successivamente, se lo si desidera, è possibile sostituire l'avatar generato con un'immagine a scelta. Per prima cosa, raggiungi la scheda "Profile" (sopra la scheda "SSH Keys") e fare click su "Add new picture".
+Officia deserunt eiusmod magna excepteur cupidatat occaecat excepteur. Ullamco dolor cupidatat minim do pariatur velit consectetur ut ad quis exercitation cillum. Esse ullamco excepteur amet ipsum Lorem sint occaecat.
 
-img...
-
-Quando si sceglie un'immagine, avremo anche la possibilità di ritagliarla.
-
-img...
-
-Ora, ovunque tu abbia interagito in GitHub, a fianco del tuo nome utente, apparirà il tuo avatar.
-
-Se ti è capitato di creare un'avatar sul famoso servizio Gravatar, quell'avatar sarà creato di default.
+Mollit tempor quis minim voluptate officia mollit pariatur excepteur aliqua. Minim nisi ex culpa nostrud exercitation officia aute est exercitation consequat excepteur nulla. Aliqua laborum exercitation aliqua in nisi velit Lorem tempor fugiat est et sit excepteur. Sit id et sunt culpa dolore sunt laboris elit. Laborum aliquip eu est ex non est elit eu ex sunt eiusmod sunt.
 
 ### Your Email Addresses ###
 
@@ -306,3 +298,7 @@ Il modo in cui GitHub mappa i Git commit, è legato alla mail della tua utenza, 
 img...
 
 In Admin Email addresses possiamo vedere i diversi stati possibili. L'indirizzo in cima è verificato e impostato come indirizzo primario, ciò significa che riceverete a questa mail notifiche e ricevute. L'indirizzo secondario è verificato e può rimpiazzare il primario. L'ultimo indirizzo non è verificato quindi non potrete renderlo il vostro indirizzo primario. Se GitHub non vede nessuno di questi nei commit, i vostri commit verranno linkati al vostro nome utente attuale.
+
+Pariatur enim tempor ea labore anim nostrud tempor dolor est tempor sit do eu. Esse ea ullamco consectetur nisi ullamco esse esse officia laborum commodo. Nisi dolor enim magna elit nisi reprehenderit elit occaecat quis laboris dolor. Lorem tempor eiusmod nostrud aliqua adipisicing id minim et occaecat. Commodo voluptate qui nulla pariatur magna incididunt sint pariatur ea. Consectetur ea cillum et do duis magna aliqua occaecat voluptate quis officia veniam.
+
+Mollit velit laborum nisi pariatur. Amet veniam ea amet mollit duis ipsum aliqua elit magna eu nostrud eu. Quis consequat magna nulla duis culpa nulla irure ea ad commodo et. Laborum excepteur consequat id eiusmod sint officia ad occaecat occaecat sunt sunt minim ea voluptate. Reprehenderit ipsum qui aliquip consequat voluptate in aliqua officia eiusmod laboris tempor in.
