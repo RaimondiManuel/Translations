@@ -252,3 +252,5 @@ Ciò crea una directory chiamata in qualche modo diverso da libgit2. Volendo puo
 $ git clone https://github.com/libgit2/libgit2 mylibgit
 ```
 Quel comando fà la stessa cosa del precedente ma la directory di destinazione verrà chiamata mylibgit.
+
+sasdasdsadasdsa
