@@ -395,9 +395,3 @@ Mollit tempor quis minim voluptate officia mollit pariatur excepteur aliqua. Min
 Il modo in cui GitHub mappa i Git commit, è legato alla mail della tua utenza, se utilizzate più indirizzi mail nei vostri commits e volete che GitHub li linki in maniera corretta, avrete bisogno di aggiungerli alla scheda mail della sezione admin.
 
 img...
-
-In Admin Email addresses possiamo vedere i diversi stati possibili. L'indirizzo in cima è verificato e impostato come indirizzo primario, ciò significa che riceverete a questa mail notifiche e ricevute. L'indirizzo secondario è verificato e può rimpiazzare il primario. L'ultimo indirizzo non è verificato quindi non potrete renderlo il vostro indirizzo primario. Se GitHub non vede nessuno di questi nei commit, i vostri commit verranno linkati al vostro nome utente attuale.
-
-Pariatur enim tempor ea labore anim nostrud tempor dolor est tempor sit do eu. Esse ea ullamco consectetur nisi ullamco esse esse officia laborum commodo. Nisi dolor enim magna elit nisi reprehenderit elit occaecat quis laboris dolor. Lorem tempor eiusmod nostrud aliqua adipisicing id minim et occaecat. Commodo voluptate qui nulla pariatur magna incididunt sint pariatur ea. Consectetur ea cillum et do duis magna aliqua occaecat voluptate quis officia veniam.
-
-Mollit velit laborum nisi pariatur. Amet veniam ea amet mollit duis ipsum aliqua elit magna eu nostrud eu. Quis consequat magna nulla duis culpa nulla irure ea ad commodo et. Laborum excepteur consequat id eiusmod sint officia ad occaecat occaecat sunt sunt minim ea voluptate. Reprehenderit ipsum qui aliquip consequat voluptate in aliqua officia eiusmod laboris tempor in.
