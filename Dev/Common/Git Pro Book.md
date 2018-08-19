@@ -395,3 +395,5 @@ Mollit tempor quis minim voluptate officia mollit pariatur excepteur aliqua. Min
 Il modo in cui GitHub mappa i Git commit, è legato alla mail della tua utenza, se utilizzate più indirizzi mail nei vostri commits e volete che GitHub li linki in maniera corretta, avrete bisogno di aggiungerli alla scheda mail della sezione admin.
 
 img...
+
+sdfsdfsdsdsddfs
