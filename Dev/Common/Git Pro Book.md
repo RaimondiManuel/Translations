@@ -253,6 +253,51 @@ $ git clone https://github.com/libgit2/libgit2 mylibgit
 ```
 Quel comando fà la stessa cosa del precedente ma la directory di destinazione verrà chiamata mylibgit.
 
+## 3.1 Git Branching - Branches in a Nutshell ##
+
+Quasi ogni VCS ha qualche forma di supporto al branching. Per branching si intende, far divergere dalla linea principale di sviluppo, continuando a lavorare senza corrempere la solidita del progetto principale. In molti strumenti VCS, il branching è un processo molto costoso, in quanto richiede la copia dell'intero progetto, il che su progetti di grandi dimensioni, il prezzo in tempo e dimensioni potrebbero risultare davvero non trascurabili.
+
+Alcune persone, si riferiscono al sistema di branching di Git come a una "Killer feature" e certamente distingue Git dal resto della comunity VCS. Il sistema di branching di Git è cosi speciale, grazie alla leggerezza, il che rendequasi istantaneo muoversi avanti e indietro fra di essi. A differenza di molti altri VCS, Git incoraggia l'utilizzo di un workflow basato sul branching e merging. Comprendere e padroneggiare questa funzione ti permetterà di avere a disposizione uno strumento molto potente, che cambierà il tuo modo di versionare.
+
+### Branches in a Nutshell ###
+
+Per comprendere veramente il modo in cui Git gestisce il branching, dobbiamo fare un passo indietro ed esaminare come Git immagazzina i suoi dati. 
+
+Come potresti ricordare nella guida introduttiva, Git non memorizza i dati come una serie di changeset o di differenze, ma come una serie di snapshot.
+
+Quando fai un commit, Git memorizza un'oggetto commit che contiene un puntatore allo snapshot del content che hai messo in stage. Questo progetto contiene anche il nome utentem la mail, il messaggio di commit, i puntatori e il puntatore al commit precedente a questo: Ciò significa che il commit iniziale non avrà puntatore, i commit successivi avranno un puntatore al commit precedente, il commit successivo ad un merge invece avrà più puntatori a diversi commits.
+
+Per esempio, supponiamo di avere una directory contenente tre file, tutti inseriti nella staging area e successivamente committati. Per ogni file portato in stage verrà creato da Git un checksum (l'hash SHA-1 menzionato nella guida introduttiva), memorizzando poi la versione del file nel repository Git (riferendosi ad essi come blob) e aggiunge tale checksum all'area di staging.
+
+```
+$ git add README test.rb LICENSE
+$ git commit -a -m "The initial commit of my project."
+```
+Quando si crea un commit effettuando `git commit`, Git fà il checksum di ogni subdirectory(in questo caso solo della root directory del progetto) e immagazzina gli oggetti dell'albero nel repository. Quindi, Git crea un oggetto commit contenente i metadati e un puntatore alla root del progetto, in modo tale da che possa ricreare quello snapshot quando necessario.
+
+Il tuo repository Git ora contiene 5 oggetti: tre blob (ognuno rappresenta il contenuto di uno dei tre file), un albero che elenca il contenuto della directory e specifica quali nomi di file reppresentano quale blob, un puntatore alla root del progetto e tutti i metadati del commit.
+
+Se si apportano modifiche e si esegue nuovamente un commit, il commit successivo memorizza un puntatore al commit immediatamente precedente.
+
+Un branch Git è semplicemente un puntatore, mobile e leggero, ad uno di questi commits. Il nome del branch di default in Git è "master". Quando inizi a fare commit ti viene assegnato il branch master che punta all'ultimo commit effettuato. Ogni volta che si esegue un commit, il puntatore del ramo master si sposta in avanti automaticamente.
+
+> Il branch "master" in Git non è un ramo speciale. E' esattamente come un qualsiasi altro branch. L'unica ragione per cui ogni altro repository ne ha uno è che il comando `git init` lo crea di default, e la maggior parte delle persone non si preoccupa di cambiarli.
+
+Cosa succede se create un nuovo branch? crea semplicemente un nuovo puntatore per permetterti di muoverti lungo l'albero.
+
+```
+$ git branch testing
+```
+Questo crea un nuovo puntatore allo stesso commit sul quale sei attualmente. Quindi ora ci saranno due branch che puntano allo stesso commit.
+
+Come fà Git a sapere su quale branch si sta puntando attuamente? Git mantiene un puntatore chiamato HEAD. Nota per HEAD non ha alcuna similitudine con il concetto di HEAD presente negli altri sistemi VCS come Subversion o CVS. In Git, HEAD è un puntatore al branch locale in cui ti trovi attualmente, in questo caso sarà "master". Il comando `git branch testing` ha creato solamente un nuovo branch, ma non ha spostato il puntatore HEAD su di esso. Potete vedere dove HEAD sta puntando con il comando `git log --decorate`
+
+```
+$ git log --oneline --decorate
+ f30ab (HEAD->master, testing) Add feature #32
+ 34ac2 Fixed bug #1328 - Stack overflow under centain condition.
+ 98ca9 The initial commit of my project.
+```
 
 ## 6.1 GitHub - Account Setup and Configuration ##
 
