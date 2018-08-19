@@ -299,6 +299,60 @@ $ git log --oneline --decorate
  98ca9 The initial commit of my project.
 ```
 
+Potete vedere che i branch "master" e "testing" si trovano li nel commit f30ab.
+
+### Switching Branches ###
+
+Per passare ad un branch esistente, si esegue il comando `git checkout <branch>`
+
+```
+$ git checkout testing
+```
+In questo modo HEAD si sposterà sul branch "testing".
+
+```
+$ vim test.rb
+$ git commit -a -m "Made a change."
+```
+
+Quando viene eseguito un commit il puntatore HEAD si sposta si sposta in avanti di un commit.
+
+Ciò è interessante perchè ora il tuo branch "testing" si è spostanto in avanti, mentre il branch "master" punta ancora al commit cui ti trovavi quando hai eseguito il checkout. Ora torneremo al branch "master":
+
+```
+$ git checkout master
+```
+
+HEAD si è spostato indietro per puntare al branch "master", contemporaneamente si sono ripristinati i files nella working directory, allineandosi con lo snapshot a cui puntava master. Ciò significa che le modifiche apportate da questo punto in avanti divergeranno dalla versione precedente del progetto. In sostanza riavvolge il lavoro che hai svolto nel branch di "testing" in modo tale da poter andare in una direzione diversa.
+
+> Il cambio di branch cambia i file nella vostra working directory. E' importante notare che quando cambiate branch in Git, i file nella vostra directory cambiano. Se passate ad un branch più vecchio, la vostra working directory verrà ripristinata in modo che assomigli all'ultima volta che è stato eseguito il commit su quel branch. Se Git non può farlo in modo pulito, Git si interromperà non permettendovi di compiere questa azione.
+
+Facciamo alcune modifiche ed eseguiamo il commit ancora:
+
+```
+$ vim test.rb
+$ git commit -a -m "Made other changes."
+```
+Da ora in poi la cronologia del progetto divergerà ( vedi Divergent history ), hai creato e sei passato ad un branch, lavorato su di esso, quindi tornato indietro al branch "master", e lavorato ancora. Entrambi questi cambiamenti sono isolati nel proprio branch. E' possibile spostarsi avanti e indietro fra i branches ed unirli una volta che lo vorrai, con i semplici comandi `branch`, `checkout`, `commit`.
+
+Potete facilmente vedere cosa succede con il comando `git log`. Se eseguite il comando `git log --oneline --decorate --graph --all`, verrà stampata la history dei commits, mostrandovi dove si trova il vostro puntatore e come:
+
+```
+$ git log --oneline --decorate --graph --all
+* cab9e (HEAD, master) Made other change.
+| * 87ab2 (testing) Made a change.
+| /
+*  f30ab (HEAD->master, testing) Add feature #32
+*  34ac2 Fixed bug #1328 - Stack overflow under centain condition.
+*  98ca9 The initial commit of my project.
+```
+
+Poichè un branch in Git è in realtà un semplice file che contiene il checksum SHA-1 di 40 caratteri del commit a cui punta, i branch sono economici da creare e da distruggere. Creare un nuovo branch è semplice e veloce come scrivere 41 byte in un file.
+
+Ciò è molto in contrasto con il modo in cui la maggior parte dei vecchi sistemi VCS gestiscono i branches, la qualo creano una copia di tutti i file del progetto in una seconda directory. Questo può richiedere un dispendio di tempo e spazio nella memoria nono indifferente, a seconda delle dimensioni del progetto. In Git questo processo è quasi istantaneo. Inoltre poichè poichè registriamo il genitore quando eseguiamo un commit, Git trova automaticamente una base per il merging. In caso debba essere fatto manualmete risulta comunque un compito facile. Queste funzionalità invogliano gli sviluppatori a creare e utilizzare branch più spesso.
+
+## 3.2 Git Branching - Basic Branching an Merging ##
+
 ## 6.1 GitHub - Account Setup and Configuration ##
 
 GitHub è il pù grande Host per i repository Git, ed è il punto centrale di collaborazione per molti sviluppatori e progetti. Una grande percentuale di tutti i repository Git è ospitata su GitHub e molti progetti open source la utilizzano per l'hosting Git, il monitoraggio, la revisione, e altre cose. Quindi, anche se non è una parte direttamente connessa a Git, molto probabilmente avrai bisogno di utilizzarlo in sinergia con Git.
